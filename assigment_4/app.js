@@ -8,15 +8,15 @@ app.set("view engine", "pug");
 app.set("views", "views");
 
 app.get("/", (req, res, next) => {
-  res.render("index", { pageTitle: "Add users" });
+  res.render("index", { pageTitle: "Add user" });
 });
 
 app.get("/users", (req, res, next) => {
-  res.render("user", { pageTitle: "User" });
+  res.render("users", { pageTitle: "User" });
 });
 
 app.post("/add-user", (req, res, next) => {
-  res.redirect("/users");
+  res.redirect("/ rs");
 });
 
 //server
