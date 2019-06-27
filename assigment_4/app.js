@@ -1,6 +1,7 @@
 //NPM dependencies
 const express = require("express");
 const bodyParser = require("body-parser");
+const expressHbs = require("express-handlebars");
 
 //created app
 const app = express();
@@ -8,7 +9,8 @@ const app = express();
 const users = [];
 
 //templating engine
-app.set("view engine", "pug");
+app.engine("hbs", expressHbs());
+app.set("view engine", "hbs");
 app.set("views", "views");
 
 app.use(bodyParser.urlencoded({ extended: false }));
