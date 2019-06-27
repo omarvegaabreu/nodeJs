@@ -9,7 +9,7 @@ const app = express();
 const users = [];
 
 //templating engine
-app.engine("hbs", expressHbs());
+app.engine("hbs", expressHbs({ defaultLayout: "main-layout", extname: "hbs" }));
 app.set("view engine", "hbs");
 app.set("views", "views");
 
@@ -20,7 +20,11 @@ app.get("/", (req, res, next) => {
 });
 
 app.get("/users", (req, res, next) => {
-  res.render("users", { pageTitle: "User", users: users });
+  res.render("users", {
+    pageTitle: "User",
+    users: users,
+    hasUsers: users.length > 0
+  });
 });
 
 app.post("/add-user", (req, res, next) => {
